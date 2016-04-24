@@ -10,5 +10,6 @@ import UIKit
 class FoodTableViewCell : UITableViewCell {
     
     @IBOutlet weak var foodImage: UIImageView!
+    @IBOutlet weak var foodLabel: UILabel!
     
 }

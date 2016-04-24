@@ -74,7 +74,7 @@ class FoodieTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("foodtotry") as! FoodTableViewCell
         let foodObject = self.foods![indexPath.row]
         let foodName = foodObject["name"] as! String
-        //cell?.textLabel?.text = foodName
+        cell.foodLabel.text = foodName
         
         //create image from data
         let foodImageURL = foodObject["image"] as! String

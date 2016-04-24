@@ -95,9 +95,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="431.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTE-PC-EmQ">
-                                            <rect key="frame" x="38" y="0.0" width="525" height="394"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sTE-PC-EmQ">
+                                            <rect key="frame" x="38" y="-1" width="525" height="394"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkA-SH-gGw">
+                                            <rect key="frame" x="38" y="401" width="525" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="sTE-PC-EmQ" firstAttribute="width" secondItem="gXZ-8Z-qlz" secondAttribute="height" multiplier="525:431" id="8JG-Fn-BuD"/>
@@ -108,6 +114,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="foodImage" destination="sTE-PC-EmQ" id="Cxw-TB-PiV"/>
+                                    <outlet property="foodLabel" destination="rkA-SH-gGw" id="x0X-kC-Ijk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
