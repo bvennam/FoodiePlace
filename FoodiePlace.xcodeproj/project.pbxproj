@@ -16,6 +16,7 @@
 		7F004C361CCBD21700F4FAA8 /* FoodiePlaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F004C351CCBD21700F4FAA8 /* FoodiePlaceUITests.swift */; };
 		7F004C441CCD209D00F4FAA8 /* FoodieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F004C431CCD209D00F4FAA8 /* FoodieTableViewController.swift */; };
 		7F004C461CCD219000F4FAA8 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F004C451CCD219000F4FAA8 /* GCD.swift */; };
+		7F004C481CCD27DC00F4FAA8 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F004C471CCD27DC00F4FAA8 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		7F004C371CCBD21700F4FAA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F004C431CCD209D00F4FAA8 /* FoodieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodieTableViewController.swift; sourceTree = "<group>"; };
 		7F004C451CCD219000F4FAA8 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		7F004C471CCD27DC00F4FAA8 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				7F004C211CCBD21700F4FAA8 /* Info.plist */,
 				7F004C431CCD209D00F4FAA8 /* FoodieTableViewController.swift */,
 				7F004C451CCD219000F4FAA8 /* GCD.swift */,
+				7F004C471CCD27DC00F4FAA8 /* LocationViewController.swift */,
 			);
 			path = FoodiePlace;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F004C481CCD27DC00F4FAA8 /* LocationViewController.swift in Sources */,
 				7F004C181CCBD21700F4FAA8 /* ViewController.swift in Sources */,
 				7F004C161CCBD21700F4FAA8 /* AppDelegate.swift in Sources */,
 				7F004C461CCD219000F4FAA8 /* GCD.swift in Sources */,

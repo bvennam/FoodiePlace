@@ -6,6 +6,78 @@
     </dependencies>
     <scenes>
         <!--Foodie-->
+        <scene sceneID="NVm-FU-rRM">
+            <objects>
+                <navigationController id="JiF-rQ-saz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Foodie" image="food" id="n5W-rW-8hY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Y0-Ag-RTF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sAR-PD-aTj" kind="relationship" relationship="rootViewController" id="fU5-iB-Nry"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TsH-wM-D6W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="-422"/>
+        </scene>
+        <!--Foodie-->
+        <scene sceneID="6SB-ZC-iWC">
+            <objects>
+                <viewController id="sAR-PD-aTj" userLabel="Foodie" customClass="LocationViewController" customModule="FoodiePlace" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O12-py-fkj"/>
+                        <viewControllerLayoutGuide type="bottom" id="hC7-3p-3kb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YOK-dC-uHJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Spain" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tiQ-Q3-wvP">
+                                <rect key="frame" x="250" y="285" width="138" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IRs-db-r2W"/>
+                                    <constraint firstAttribute="width" constant="138" id="d6U-T1-ax8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dd-iV-usg">
+                                <rect key="frame" x="176" y="289" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gS-WW-HSj">
+                                <rect key="frame" x="390" y="285" width="34" height="30"/>
+                                <state key="normal" title="YUM"/>
+                                <connections>
+                                    <segue destination="OT9-EZ-HK7" kind="show" id="Z7n-QG-WyG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Dd-iV-usg" firstAttribute="centerY" secondItem="YOK-dC-uHJ" secondAttribute="centerY" id="VbN-Py-iEO"/>
+                            <constraint firstItem="tiQ-Q3-wvP" firstAttribute="centerX" secondItem="YOK-dC-uHJ" secondAttribute="centerX" constant="19" id="Vov-Tk-7KP"/>
+                            <constraint firstItem="tiQ-Q3-wvP" firstAttribute="centerY" secondItem="YOK-dC-uHJ" secondAttribute="centerY" id="iuE-eD-m6H"/>
+                            <constraint firstItem="4gS-WW-HSj" firstAttribute="leading" secondItem="tiQ-Q3-wvP" secondAttribute="trailing" constant="2" id="o6z-5s-laa"/>
+                            <constraint firstItem="tiQ-Q3-wvP" firstAttribute="leading" secondItem="5Dd-iV-usg" secondAttribute="trailing" constant="3" id="vKB-kM-hkV"/>
+                            <constraint firstItem="4gS-WW-HSj" firstAttribute="centerY" secondItem="YOK-dC-uHJ" secondAttribute="centerY" id="yKB-xl-PGQ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Foodie" image="food" id="P4v-xQ-WOT" userLabel="Foodie"/>
+                    <navigationItem key="navigationItem" id="yZE-LC-52z"/>
+                    <connections>
+                        <outlet property="locationText" destination="tiQ-Q3-wvP" id="seB-fD-Zn9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mlg-vt-a8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1899" y="-422"/>
+        </scene>
+        <!--Foodie Table View Controller-->
         <scene sceneID="ugq-it-Jdx">
             <objects>
                 <tableViewController id="OT9-EZ-HK7" customClass="FoodieTableViewController" customModule="FoodiePlace" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,7 +87,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodtotry" id="r0l-7l-bTn">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0l-7l-bTn" id="gXZ-8Z-qlz">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -28,11 +100,10 @@
                             <outlet property="delegate" destination="OT9-EZ-HK7" id="kkw-bE-m8E"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Foodie" image="food" id="0mp-5h-yW6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5s9-No-yzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122" y="-422"/>
+            <point key="canvasLocation" x="2618" y="-422"/>
         </scene>
         <!--Friends-->
         <scene sceneID="Q0u-fN-RnG">
@@ -64,13 +135,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="NyE-z0-ley" kind="relationship" relationship="viewControllers" id="lP1-cw-7eB"/>
-                        <segue destination="OT9-EZ-HK7" kind="relationship" relationship="viewControllers" id="JeI-hl-1lh"/>
+                        <segue destination="JiF-rQ-saz" kind="relationship" relationship="viewControllers" id="QLO-fR-qyc"/>
                         <segue destination="H0b-Yd-bve" kind="relationship" relationship="viewControllers" id="Te7-1E-auA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1jb-k5-9Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-462" y="-422"/>
+            <point key="canvasLocation" x="-404" y="-422"/>
         </scene>
         <!--My Foods-->
         <scene sceneID="mcc-t7-cPP">
