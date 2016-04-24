@@ -1,25 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K0n-tQ-CtY">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Foodie-->
+        <scene sceneID="ugq-it-Jdx">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="OT9-EZ-HK7" customClass="FoodieTableViewController" customModule="FoodiePlace" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PDb-QR-mnM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodtotry" id="r0l-7l-bTn">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0l-7l-bTn" id="gXZ-8Z-qlz">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OT9-EZ-HK7" id="EcN-QX-rE4"/>
+                            <outlet property="delegate" destination="OT9-EZ-HK7" id="kkw-bE-m8E"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Foodie" image="food" id="0mp-5h-yW6"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5s9-No-yzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1122" y="-422"/>
+        </scene>
+        <!--Friends-->
+        <scene sceneID="Q0u-fN-RnG">
+            <objects>
+                <viewController id="NyE-z0-ley" userLabel="Friends" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BIl-Cw-zmA"/>
+                        <viewControllerLayoutGuide type="bottom" id="7aj-w3-Aiv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jwA-Lh-4NZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Friends" image="friends" id="lSE-4e-gF1" userLabel="Friends"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXF-99-AZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="-844"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="NXX-mm-eVL">
+            <objects>
+                <tabBarController id="K0n-tQ-CtY" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="hXr-Ap-ZfA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NyE-z0-ley" kind="relationship" relationship="viewControllers" id="lP1-cw-7eB"/>
+                        <segue destination="OT9-EZ-HK7" kind="relationship" relationship="viewControllers" id="JeI-hl-1lh"/>
+                        <segue destination="H0b-Yd-bve" kind="relationship" relationship="viewControllers" id="Te7-1E-auA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1jb-k5-9Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-462" y="-422"/>
+        </scene>
+        <!--My Foods-->
+        <scene sceneID="mcc-t7-cPP">
+            <objects>
+                <viewController id="H0b-Yd-bve" userLabel="My Foods" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2cc-9u-OYW"/>
+                        <viewControllerLayoutGuide type="bottom" id="NtS-VK-Byj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eNc-7l-LVf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Foods" image="profile" id="HpN-NH-yYi" userLabel="My Foods"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="awz-Ef-bdm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="32"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="food" width="24" height="24"/>
+        <image name="friends" width="24" height="24"/>
+        <image name="profile" width="24" height="24"/>
+    </resources>
 </document>
