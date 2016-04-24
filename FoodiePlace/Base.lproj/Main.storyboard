@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Foodie-->
@@ -81,18 +83,32 @@
         <scene sceneID="ugq-it-Jdx">
             <objects>
                 <tableViewController id="OT9-EZ-HK7" customClass="FoodieTableViewController" customModule="FoodiePlace" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PDb-QR-mnM">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="432" sectionHeaderHeight="28" sectionFooterHeight="28" id="PDb-QR-mnM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodtotry" id="r0l-7l-bTn">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodtotry" rowHeight="432" id="r0l-7l-bTn" customClass="FoodTableViewCell" customModule="FoodiePlace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="432"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0l-7l-bTn" id="gXZ-8Z-qlz">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="431.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTE-PC-EmQ">
+                                            <rect key="frame" x="38" y="0.0" width="525" height="394"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sTE-PC-EmQ" firstAttribute="width" secondItem="gXZ-8Z-qlz" secondAttribute="height" multiplier="525:431" id="8JG-Fn-BuD"/>
+                                        <constraint firstItem="sTE-PC-EmQ" firstAttribute="centerX" secondItem="gXZ-8Z-qlz" secondAttribute="centerX" id="CxZ-Z5-sbo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sTE-PC-EmQ" secondAttribute="bottom" constant="30.5" id="SH3-4v-CIu"/>
+                                        <constraint firstItem="sTE-PC-EmQ" firstAttribute="top" secondItem="gXZ-8Z-qlz" secondAttribute="topMargin" constant="-9" id="ei6-CC-vwG"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="foodImage" destination="sTE-PC-EmQ" id="Cxw-TB-PiV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -71,19 +71,20 @@ class FoodieTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print(self.foods)
-        let cell = tableView.dequeueReusableCellWithIdentifier("foodtotry")
+        let cell = tableView.dequeueReusableCellWithIdentifier("foodtotry") as! FoodTableViewCell
         let foodObject = self.foods![indexPath.row]
         let foodName = foodObject["name"] as! String
-        cell?.textLabel?.text = foodName
+        //cell?.textLabel?.text = foodName
         
         //create image from data
         let foodImageURL = foodObject["image"] as! String
         if let url  = NSURL(string: foodImageURL),
             data = NSData(contentsOfURL: url)
         {
-            cell?.imageView?.image = UIImage(data: data)
+            cell.foodImage.image = UIImage(data: data)
+            //cell?.imageView?.image = UIImage(data: data)
         }
-        return cell!
+        return cell
     }
     
     

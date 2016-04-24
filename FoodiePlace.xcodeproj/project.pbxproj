@@ -17,6 +17,7 @@
 		7F004C441CCD209D00F4FAA8 /* FoodieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F004C431CCD209D00F4FAA8 /* FoodieTableViewController.swift */; };
 		7F004C461CCD219000F4FAA8 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F004C451CCD219000F4FAA8 /* GCD.swift */; };
 		7F004C481CCD27DC00F4FAA8 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F004C471CCD27DC00F4FAA8 /* LocationViewController.swift */; };
+		7F65CC961CCD485C00BD0B8A /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65CC951CCD485C00BD0B8A /* FoodTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7F004C431CCD209D00F4FAA8 /* FoodieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodieTableViewController.swift; sourceTree = "<group>"; };
 		7F004C451CCD219000F4FAA8 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		7F004C471CCD27DC00F4FAA8 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		7F65CC951CCD485C00BD0B8A /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodTableViewCell.swift; path = ../FoodTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		7F004C141CCBD21700F4FAA8 /* FoodiePlace */ = {
 			isa = PBXGroup;
 			children = (
+				7F65CC951CCD485C00BD0B8A /* FoodTableViewCell.swift */,
 				7F004C151CCBD21700F4FAA8 /* AppDelegate.swift */,
 				7F004C171CCBD21700F4FAA8 /* ViewController.swift */,
 				7F004C191CCBD21700F4FAA8 /* Main.storyboard */,
@@ -270,6 +273,7 @@
 				7F004C161CCBD21700F4FAA8 /* AppDelegate.swift in Sources */,
 				7F004C461CCD219000F4FAA8 /* GCD.swift in Sources */,
 				7F004C441CCD209D00F4FAA8 /* FoodieTableViewController.swift in Sources */,
+				7F65CC961CCD485C00BD0B8A /* FoodTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +500,7 @@
 				7F004C3C1CCBD21700F4FAA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F004C3D1CCBD21700F4FAA8 /* Build configuration list for PBXNativeTarget "FoodiePlaceTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +509,7 @@
 				7F004C3F1CCBD21700F4FAA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F004C401CCBD21700F4FAA8 /* Build configuration list for PBXNativeTarget "FoodiePlaceUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +518,7 @@
 				7F004C421CCBD21700F4FAA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
