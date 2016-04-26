@@ -23,6 +23,10 @@ class LocationViewController: UIViewController {
         resultsViewController = GMSAutocompleteResultsViewController()
         let filter = GMSAutocompleteFilter()
         
+        //set background image
+        let image = UIImage(named: "foodPic")
+        self.view.backgroundColor = UIColor(patternImage: image!)
+
         //filter by City
         filter.type = GMSPlacesAutocompleteTypeFilter.City
         resultsViewController?.autocompleteFilter = filter
@@ -35,7 +39,7 @@ class LocationViewController: UIViewController {
         searchController?.searchBar.barTintColor = UIColor(red: 0.306, green: 0.804, blue: 0.769, alpha: 1.0) /*#4ecdc4*/
         //searchController?.searchBar.tintColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
         //resultsViewController?.tintColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        let subView = UIView(frame: CGRectMake(0, self.view.frame.height/3.0, self.view.frame.width, 45.0))
+        let subView = UIView(frame: CGRectMake(0, 64.0, self.view.frame.width, 45.0))
         subView.addSubview((searchController?.searchBar)!)
         self.view.addSubview(subView)
         searchController?.searchBar.sizeToFit()
@@ -59,6 +63,7 @@ class LocationViewController: UIViewController {
 }
 // Handle the user's selection.
 extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
+    
     func resultsController(resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWithPlace place: GMSPlace) {
         searchController?.active = false
@@ -69,6 +74,9 @@ extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
         print("Place name: ", place.name)
         print("Place address: ", place.formattedAddress)
         print("Place attributions: ", place.attributions)
+//        if(UIApplication.sharedApplication().networkActivityIndicatorVisible == false) {
+//            performSegueWithIdentifier("showFoodsSegue", sender: self)
+//        }
     }
     
     func resultsController(resultsController: GMSAutocompleteResultsViewController,
@@ -85,5 +93,6 @@ extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
     func didUpdateAutocompletePredictionsForResultsController(resultsController: GMSAutocompleteResultsViewController) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
+
 }
 
