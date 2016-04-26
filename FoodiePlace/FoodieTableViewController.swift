@@ -13,10 +13,11 @@ class FoodieTableViewController: UITableViewController {
     
     var location:String?
     var foods:NSArray?
+    var selectedCity:AnyObject?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        //print(location)
+        print(selectedCity)
         let session = NSURLSession.sharedSession()
         let url = NSURL(string: "http://localhost:8080/api/locations/571b9a5dce4f53f52b85bd03")
         let request = NSURLRequest(URL: url!)

@@ -13,6 +13,7 @@ class LocationViewController: UIViewController {
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
+    var selectedCity:AnyObject?
     //@IBOutlet weak var typeView: UIView!
     
     @IBOutlet weak var locationText: UITextField!
@@ -21,6 +22,8 @@ class LocationViewController: UIViewController {
         super.viewDidLoad()
         resultsViewController = GMSAutocompleteResultsViewController()
         let filter = GMSAutocompleteFilter()
+        
+        //filter by City
         filter.type = GMSPlacesAutocompleteTypeFilter.City
         resultsViewController?.autocompleteFilter = filter
         resultsViewController?.delegate = self
@@ -45,8 +48,8 @@ class LocationViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //let destinationVC = segue.destinationViewController as! FoodieTableViewController
-        //destinationVC.location = locationText.text
+        let destinationVC = segue.destinationViewController as! FoodieTableViewController
+        destinationVC.selectedCity = self.selectedCity
     }
 }
 // Handle the user's selection.
@@ -56,6 +59,8 @@ extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
         searchController?.active = false
         // Do something with the selected place.
         searchController?.searchBar.text = place.name
+        self.selectedCity = place
+        print(self.selectedCity)
         print("Place name: ", place.name)
         print("Place address: ", place.formattedAddress)
         print("Place attributions: ", place.attributions)
