@@ -20,13 +20,14 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resultsViewController = GMSAutocompleteResultsViewController()
+        let filter = GMSAutocompleteFilter()
+        filter.type = GMSPlacesAutocompleteTypeFilter.City
+        resultsViewController?.autocompleteFilter = filter
         resultsViewController?.delegate = self
         
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
-        
-        let subView = UIView(frame: CGRectMake(0, 65.0, 400.0, 45.0))
-        
+        let subView = UIView(frame: CGRectMake(0, self.view.frame.height/3.0, self.view.frame.width, 45.0))
         subView.addSubview((searchController?.searchBar)!)
         self.view.addSubview(subView)
         searchController?.searchBar.sizeToFit()
@@ -54,6 +55,7 @@ extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
                            didAutocompleteWithPlace place: GMSPlace) {
         searchController?.active = false
         // Do something with the selected place.
+        searchController?.searchBar.text = place.name
         print("Place name: ", place.name)
         print("Place address: ", place.formattedAddress)
         print("Place attributions: ", place.attributions)

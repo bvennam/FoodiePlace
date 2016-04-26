@@ -36,44 +36,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Spain" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tiQ-Q3-wvP">
-                                <rect key="frame" x="250" y="285" width="138" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="IRs-db-r2W"/>
-                                    <constraint firstAttribute="width" constant="138" id="d6U-T1-ax8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dd-iV-usg">
-                                <rect key="frame" x="176" y="289" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gS-WW-HSj">
-                                <rect key="frame" x="390" y="285" width="34" height="30"/>
+                                <rect key="frame" x="283" y="513" width="34" height="30"/>
                                 <state key="normal" title="YUM"/>
                                 <connections>
                                     <segue destination="OT9-EZ-HK7" kind="show" id="Z7n-QG-WyG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foodie Food to match your Place!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dd-iV-usg">
+                                <rect key="frame" x="172" y="217" width="257" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5Dd-iV-usg" firstAttribute="centerY" secondItem="YOK-dC-uHJ" secondAttribute="centerY" id="VbN-Py-iEO"/>
-                            <constraint firstItem="tiQ-Q3-wvP" firstAttribute="centerX" secondItem="YOK-dC-uHJ" secondAttribute="centerX" constant="19" id="Vov-Tk-7KP"/>
-                            <constraint firstItem="tiQ-Q3-wvP" firstAttribute="centerY" secondItem="YOK-dC-uHJ" secondAttribute="centerY" id="iuE-eD-m6H"/>
-                            <constraint firstItem="4gS-WW-HSj" firstAttribute="leading" secondItem="tiQ-Q3-wvP" secondAttribute="trailing" constant="2" id="o6z-5s-laa"/>
-                            <constraint firstItem="tiQ-Q3-wvP" firstAttribute="leading" secondItem="5Dd-iV-usg" secondAttribute="trailing" constant="3" id="vKB-kM-hkV"/>
-                            <constraint firstItem="4gS-WW-HSj" firstAttribute="centerY" secondItem="YOK-dC-uHJ" secondAttribute="centerY" id="yKB-xl-PGQ"/>
+                            <constraint firstItem="4gS-WW-HSj" firstAttribute="centerX" secondItem="YOK-dC-uHJ" secondAttribute="centerX" id="Wss-IV-AyR"/>
+                            <constraint firstItem="hC7-3p-3kb" firstAttribute="top" secondItem="4gS-WW-HSj" secondAttribute="bottom" constant="8" id="dAx-zF-KoT"/>
+                            <constraint firstItem="5Dd-iV-usg" firstAttribute="centerX" secondItem="YOK-dC-uHJ" secondAttribute="centerX" id="e1M-fU-GAO"/>
+                            <constraint firstItem="5Dd-iV-usg" firstAttribute="top" secondItem="O12-py-fkj" secondAttribute="bottom" constant="153" id="zla-Zu-sMx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Foodie" image="food" id="P4v-xQ-WOT" userLabel="Foodie"/>
                     <navigationItem key="navigationItem" id="yZE-LC-52z"/>
-                    <connections>
-                        <outlet property="locationText" destination="tiQ-Q3-wvP" id="seB-fD-Zn9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlg-vt-a8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
