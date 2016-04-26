@@ -30,6 +30,11 @@ class LocationViewController: UIViewController {
         
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
+        searchController?.searchBar.placeholder = "Enter a Place"
+//        78, 205, 196
+        searchController?.searchBar.barTintColor = UIColor(red: 0.306, green: 0.804, blue: 0.769, alpha: 1.0) /*#4ecdc4*/
+        //searchController?.searchBar.tintColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        //resultsViewController?.tintColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
         let subView = UIView(frame: CGRectMake(0, self.view.frame.height/3.0, self.view.frame.width, 45.0))
         subView.addSubview((searchController?.searchBar)!)
         self.view.addSubview(subView)
