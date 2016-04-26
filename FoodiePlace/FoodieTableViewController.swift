@@ -74,14 +74,19 @@ class FoodieTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("foodtotry") as! FoodTableViewCell
         let foodObject = self.foods![indexPath.row]
         let foodName = foodObject["name"] as! String
-        cell.foodLabel.text = foodName
-        
-        //create image from data
+        performUIUpdatesOnMain { 
+            cell.foodLabel.text = foodName
+        }
+        //cell.foodLabel.text = foodName
+
         let foodImageURL = foodObject["image"] as! String
         if let url  = NSURL(string: foodImageURL),
             data = NSData(contentsOfURL: url)
         {
-            cell.foodImage.image = UIImage(data: data)
+            performUIUpdatesOnMain{ 
+                cell.foodImage.image = UIImage(data: data)
+            }
+            //cell.foodImage.image = UIImage(data: data)
             //cell?.imageView?.image = UIImage(data: data)
         }
         return cell
