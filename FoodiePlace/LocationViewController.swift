@@ -9,17 +9,19 @@
 import UIKit
 import GoogleMaps
 
-class LocationViewController: UIViewController {
+class LocationViewController: UIViewController, UISearchBarDelegate {
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
     var selectedCity:AnyObject?
+    var didSelect:Bool?
     //@IBOutlet weak var typeView: UIView!
     
     @IBOutlet weak var locationText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        didSelect = false;
         resultsViewController = GMSAutocompleteResultsViewController()
         let filter = GMSAutocompleteFilter()
         
@@ -27,9 +29,7 @@ class LocationViewController: UIViewController {
         let image = UIImage(named: "foodPic")
         self.view.backgroundColor = UIColor(patternImage: image!)
         self.navigationItem.rightBarButtonItems = []
-    
-
-
+        
         //filter by City
         filter.type = GMSPlacesAutocompleteTypeFilter.City
         resultsViewController?.autocompleteFilter = filter
@@ -38,10 +38,8 @@ class LocationViewController: UIViewController {
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         searchController?.searchBar.placeholder = "Enter a Place"
-//        78, 205, 196
+        searchController?.searchBar.delegate = self
         searchController?.searchBar.barTintColor = UIColor(red: 0.306, green: 0.804, blue: 0.769, alpha: 1.0) /*#4ecdc4*/
-        //searchController?.searchBar.tintColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        //resultsViewController?.tintColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
         let subView = UIView(frame: CGRectMake(0, 64.0, self.view.frame.width, 45.0))
         subView.addSubview((searchController?.searchBar)!)
         self.view.addSubview(subView)
@@ -62,14 +60,20 @@ class LocationViewController: UIViewController {
         let destinationVC = segue.destinationViewController as! FoodieTableViewController
         destinationVC.selectedCity = self.selectedCity
     }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        if (self.didSelect == true) {
+            self.didSelect = false
+            performSegueWithIdentifier("showFoodsSegue", sender: self)
+        }
+    }
 }
 // Handle the user's selection.
 extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
     
-//    func resultsController(resultsController: GMSAutocompleteResultsViewController, didAutocompleteWithPlace place: GMSPlace) {
-//    }
     func resultsController(resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWithPlace place: GMSPlace) {
+        self.didSelect = true
         searchController?.active = false
         // Do something with the selected place.
         searchController?.searchBar.text = place.name
@@ -78,10 +82,6 @@ extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
         print("Place name: ", place.name)
         print("Place address: ", place.formattedAddress)
         print("Place attributions: ", place.attributions)
-        //self.isB
-//        self.resultsViewController!.dismissViewControllerAnimated(true) {
-//            self.performSegueWithIdentifier("showFoodsSegue", sender: self)
-//        }
     }
     
     func resultsController(resultsController: GMSAutocompleteResultsViewController,
@@ -98,6 +98,4 @@ extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
     func didUpdateAutocompletePredictionsForResultsController(resultsController: GMSAutocompleteResultsViewController) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
-
 }
-
