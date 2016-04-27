@@ -8,23 +8,36 @@
 
 import Foundation
 import UIKit
+import GoogleMaps
 
 class FoodieTableViewController: UITableViewController {
     
     var location:String?
     var foods:NSArray?
-    var selectedCity:AnyObject?
+    var selectedCity:GMSPlace?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         print(selectedCity)
+        print(selectedCity!.placeID)
+        print(selectedCity!.formattedAddress)
+        print(selectedCity!.name)
         let session = NSURLSession.sharedSession()
-        let url = NSURL(string: "http://localhost:8080/api/locations/571b9a5dce4f53f52b85bd03")
+        let url = NSURL(string: "http://localhost:8080/api/locations/google/" + selectedCity!.placeID)
         let request = NSURLRequest(URL: url!)
         
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             //print(data)
             //print(response)
+            
+            func displayError(error:String) {
+                performUIUpdatesOnMain({ 
+                    let errorTextView = UITextView(frame: CGRectMake(0, 64.0, self.view.frame.width, 45.0))
+                    errorTextView.text = error
+                    self.view.addSubview(errorTextView)
+                })
+                
+            }
             
             guard (error == nil) else {
                 print(error)
@@ -47,7 +60,12 @@ class FoodieTableViewController: UITableViewController {
                 return
             }
             guard let foodsDictionary = serializedData["foods"] else {
-                print("cannot find foods key")
+                performUIUpdatesOnMain({
+                    let imageView = UIImageView(image: UIImage(named: "noFoods"))
+                    imageView.center.x = self.view.frame.width/2.0
+                    imageView.center.y = imageView.center.y + 20.0
+                    self.view.addSubview(imageView)
+                })
                 return
             }
             self.foods = foodsDictionary as? NSArray
@@ -58,7 +76,7 @@ class FoodieTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: nil, action: nil)]
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(FoodieTableViewController.addNewFood))]
         print(foods)
 
     }
@@ -91,7 +109,13 @@ class FoodieTableViewController: UITableViewController {
         return cell
     }
     
+    func addNewFood() {
+        performSegueWithIdentifier("addFoods", sender: self)
+    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //
+    }
     
     
 }

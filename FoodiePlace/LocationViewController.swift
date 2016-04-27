@@ -13,7 +13,7 @@ class LocationViewController: UIViewController, UISearchBarDelegate {
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
-    var selectedCity:AnyObject?
+    var selectedCity:GMSPlace?
     var didSelect:Bool?
     //@IBOutlet weak var typeView: UIView!
     
@@ -74,14 +74,15 @@ extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWithPlace place: GMSPlace) {
         self.didSelect = true
+        self.selectedCity = place
+        searchController?.searchBar.text = place.name
         searchController?.active = false
         // Do something with the selected place.
-        searchController?.searchBar.text = place.name
-        self.selectedCity = place
-        print(self.selectedCity)
-        print("Place name: ", place.name)
-        print("Place address: ", place.formattedAddress)
-        print("Place attributions: ", place.attributions)
+//        searchController?.searchBar.text = place.name
+        //print(self.selectedCity)
+        //print("Place name: ", place.name)
+        //print("Place address: ", place.formattedAddress)
+        //print("Place attributions: ", place.attributions)
     }
     
     func resultsController(resultsController: GMSAutocompleteResultsViewController,
