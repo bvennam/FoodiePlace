@@ -26,6 +26,9 @@ class LocationViewController: UIViewController {
         //set background image
         let image = UIImage(named: "foodPic")
         self.view.backgroundColor = UIColor(patternImage: image!)
+        self.navigationItem.rightBarButtonItems = []
+    
+
 
         //filter by City
         filter.type = GMSPlacesAutocompleteTypeFilter.City
@@ -48,7 +51,6 @@ class LocationViewController: UIViewController {
         // When UISearchController presents the results view, present it in
         // this view controller, not one further up the chain.
         self.definesPresentationContext = true
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,6 +66,8 @@ class LocationViewController: UIViewController {
 // Handle the user's selection.
 extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
     
+//    func resultsController(resultsController: GMSAutocompleteResultsViewController, didAutocompleteWithPlace place: GMSPlace) {
+//    }
     func resultsController(resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWithPlace place: GMSPlace) {
         searchController?.active = false
@@ -74,8 +78,9 @@ extension LocationViewController: GMSAutocompleteResultsViewControllerDelegate {
         print("Place name: ", place.name)
         print("Place address: ", place.formattedAddress)
         print("Place attributions: ", place.attributions)
-//        if(UIApplication.sharedApplication().networkActivityIndicatorVisible == false) {
-//            performSegueWithIdentifier("showFoodsSegue", sender: self)
+        //self.isB
+//        self.resultsViewController!.dismissViewControllerAnimated(true) {
+//            self.performSegueWithIdentifier("showFoodsSegue", sender: self)
 //        }
     }
     

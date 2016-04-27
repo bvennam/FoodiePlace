@@ -58,6 +58,7 @@ class FoodieTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: nil, action: nil)]
         print(foods)
 
     }
@@ -78,7 +79,6 @@ class FoodieTableViewController: UITableViewController {
         performUIUpdatesOnMain { 
             cell.foodLabel.text = foodName
         }
-        //cell.foodLabel.text = foodName
 
         let foodImageURL = foodObject["image"] as! String
         if let url  = NSURL(string: foodImageURL),
@@ -87,8 +87,6 @@ class FoodieTableViewController: UITableViewController {
             performUIUpdatesOnMain{ 
                 cell.foodImage.image = UIImage(data: data)
             }
-            //cell.foodImage.image = UIImage(data: data)
-            //cell?.imageView?.image = UIImage(data: data)
         }
         return cell
     }
