@@ -127,5 +127,11 @@ class FoodieTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func cancelFood(segue:UIStoryboardSegue) {
+//        if let addFoodVC = segue.sourceViewController as? AddFoodViewController {
+//            self.tableView.reloadData()
+//        }
+    }
+    
     
 }
