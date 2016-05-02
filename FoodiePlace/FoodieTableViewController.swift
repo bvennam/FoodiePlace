@@ -114,10 +114,12 @@ class FoodieTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let addFoodVC = segue.destinationViewController as! AddFoodViewController
-        addFoodVC.cityName = selectedCity?.name
-        addFoodVC.googleId = selectedCity?.placeID
-        addFoodVC.googleAddress = selectedCity?.formattedAddress
+        
+        let destinationNavController = segue.destinationViewController as! UINavigationController
+        let destinationViewController = destinationNavController.topViewController as! AddFoodViewController
+        destinationViewController.cityName = selectedCity?.name
+        destinationViewController.googleId = selectedCity?.placeID
+        destinationViewController.googleAddress = selectedCity?.formattedAddress
         //
     }
     
