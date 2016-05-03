@@ -17,6 +17,7 @@ class FoodieTableViewController: UITableViewController {
     var selectedCity:GMSPlace?
     var foodName: String?
     var foodImage: String?
+    var noFoodsImageView:UIImageView?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
@@ -56,10 +57,10 @@ class FoodieTableViewController: UITableViewController {
             }
             guard let foodsDictionary = serializedData["foods"] else {
                 performUIUpdatesOnMain({
-                    let imageView = UIImageView(image: UIImage(named: "noFoods"))
-                    imageView.center.x = self.view.frame.width/2.0
-                    imageView.center.y = imageView.center.y + 20.0
-                    self.view.addSubview(imageView)
+                    self.noFoodsImageView = UIImageView(image: UIImage(named: "noFoods"))
+                    self.noFoodsImageView!.center.x = self.view.frame.width/2.0
+                    self.noFoodsImageView!.center.y = self.noFoodsImageView!.center.y + 20.0
+                    self.view.addSubview(self.noFoodsImageView!)
                 })
                 return
             }
@@ -84,6 +85,7 @@ class FoodieTableViewController: UITableViewController {
         }
     }
     
+    //fill in the tableViewCells with foods from the API
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print(self.foods)
         let cell = tableView.dequeueReusableCellWithIdentifier("foodtotry") as! FoodTableViewCell
@@ -129,6 +131,9 @@ class FoodieTableViewController: UITableViewController {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
             let task = session.dataTaskWithRequest(request) { (data, response, error) in
+                if (self.noFoodsImageView != nil) {
+                    self.noFoodsImageView!.hidden = true
+                }
                 self.tableView.reloadData()
             }
             
