@@ -15,20 +15,16 @@ class FoodieTableViewController: UITableViewController {
     var location:String?
     var foods:NSArray?
     var selectedCity:GMSPlace?
+    var foodName: String?
+    var foodImage: String?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        print(selectedCity)
-        print(selectedCity!.placeID)
-        print(selectedCity!.formattedAddress)
-        print(selectedCity!.name)
         let session = NSURLSession.sharedSession()
         let url = NSURL(string: "http://localhost:8080/api/locations/google/" + selectedCity!.placeID)
         let request = NSURLRequest(URL: url!)
         
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            //print(data)
-            //print(response)
             
             func displayError(error:String) {
                 performUIUpdatesOnMain({ 
@@ -36,7 +32,6 @@ class FoodieTableViewController: UITableViewController {
                     errorTextView.text = error
                     self.view.addSubview(errorTextView)
                 })
-                
             }
             
             guard (error == nil) else {
@@ -113,19 +108,32 @@ class FoodieTableViewController: UITableViewController {
         performSegueWithIdentifier("addFoods", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let destinationNavController = segue.destinationViewController as! UINavigationController
-        let destinationViewController = destinationNavController.topViewController as! AddFoodViewController
-        destinationViewController.cityName = selectedCity?.name
-        destinationViewController.googleId = selectedCity?.placeID
-        destinationViewController.googleAddress = selectedCity?.formattedAddress
-        //
-    }
-    
+    //saveFood unwind segue action from adding a food panel
+    //TODO: Add more error checking
     @IBAction func saveFood(segue:UIStoryboardSegue) {
-        if let addFoodVC = segue.sourceViewController as? AddFoodViewController {
-            self.tableView.reloadData()
+        if (segue.sourceViewController.isKindOfClass(AddFoodViewController)) {
+            let session = NSURLSession.sharedSession()
+            let url = NSURL(string:"http://localhost:8080/api/locations/")
+            let request = NSMutableURLRequest(URL: url!)
+            request.HTTPMethod = "POST"
+            let foodparams = ["name":self.foodName!, "image":self.foodImage!] as Dictionary<String, String>
+            if let selectedCity = self.selectedCity {
+                let params = ["google_address":selectedCity.formattedAddress!, "google_id":selectedCity.placeID, "name": selectedCity.name, "foods":foodparams] as Dictionary<String, AnyObject>
+                do {
+                    request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: .PrettyPrinted)
+                } catch {
+                    print ("there was an error")
+                }
+            }
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let task = session.dataTaskWithRequest(request) { (data, response, error) in
+                self.tableView.reloadData()
+            }
+            
+            task.resume()
+            
         }
     }
     
